@@ -27,14 +27,11 @@ class ArrayList(List):
         '''
         resize: Create a new array and copy the old values. 
         '''
-        ## If self.n == 0 error
-        if(self.n!=0):
-            if (self.n == len(self.a)) or (self.n * 3 <= len(self.a)):
-                newArr = self.new_array(self.n*2)
-                for i in range(0, len(self.a)):
-                    newArr[i] = self.a[i]
-                self.a = newArr
-            
+        if (self.n == len(self.a)) or (self.n * 3 <= len(self.a)):
+            newArr = self.new_array(max(1, self.n*2))
+            for i in range(0, self.n):
+                newArr[i] = self.a[i]
+            self.a = newArr
 
     def get(self, i : int) -> object:
         '''
@@ -42,6 +39,7 @@ class ArrayList(List):
         Inputs:
             i: Index that is integer non negative and at most n
         '''
+        if i < 0 or i >= self.n: raise IndexError(f"Index {i} is out of bound")
         return self.a[i]
 
     def set(self, i : int, x : object) -> object:
@@ -51,15 +49,15 @@ class ArrayList(List):
             i: Index that is integer non negative and at most n
             x: Object type, i.e., any object 
         '''
-        v = self.a[i]
+        if i < 0 or i >= self.n: raise IndexError(f"Index {i} is out of bound")
+        y = self.a[i]
         self.a[i] = x
-        return v
+        return y
 
     def append(self, x : object) :  
         self.add(self.n, x)
         
     def add(self, i : int, x : object) :
-        self.resize()
         '''
             add: shift one position all the items j>=i, insert an element 
             at position i of the list and increment the number of elements 
@@ -68,15 +66,21 @@ class ArrayList(List):
                 i: Index that is integer non negative and at most n
                 x: Object type, i.e., any object
         '''
+        if i < 0 or i > self.n: raise IndexError(f"Index {i} is out of bound")
+        self.resize()
         self.a[i] = x
         for index in range(i, self.n):
             self.a[index+1] = self.a[index]
         self.n += 1
     
     def remove(self, i : int) -> object:
+        if i < 0 or i >= self.n: raise IndexError(f"Index {i} is out of bound")
+        if self.n == 0: raise Exception("Stack is empty")
         x = self.a[i]
+        
         for index in range(i+1, self.n):
             self.a[index-1] = self.a[index]
+        # self.a[i:self.n-1] = self.a[i+1:self.n]
         self.n -= 1
         self.resize()
         return x

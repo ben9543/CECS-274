@@ -32,7 +32,8 @@ class ArrayStack(Stack):
         self.a = b
 
     def get(self, i : int) -> np.object:
-        pass
+        if i < 0 or i >= self.n: raise IndexError(f"Index {i} is out of bound")
+        return self.a[i]
     
     def set(self, i : int, x : np.object) -> object:
         pass
@@ -42,14 +43,28 @@ class ArrayStack(Stack):
             shift all j > i one position to the right
             and add element x in position i
         '''
-        pass
+        if i < 0 or i > self.n: raise IndexError(f"Index {i} is out of bound")
+        self.resize()
+        self.a[i] = x
+        for index in range(i, self.n):
+            self.a[index+1] = self.a[index]
+        self.n += 1
 
     def remove(self, i : int) -> np.object :
         '''
             remove element i and shift all j > i one 
             position to the left
         '''
-        pass
+        if i < 0 or i >= self.n: raise IndexError(f"Index {i} is out of bound")
+        if self.n == 0: raise Exception("Stack is empty")
+        x = self.a[i]
+        
+        for index in range(i+1, self.n):
+            self.a[index-1] = self.a[index]
+        # self.a[i:self.n-1] = self.a[i+1:self.n]
+        self.n -= 1
+        self.resize()
+        return x
 
     def push(self, x : np.object) :
         self.add(self.n, x)

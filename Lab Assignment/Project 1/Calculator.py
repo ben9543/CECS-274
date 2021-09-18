@@ -19,7 +19,7 @@ class Calculator:
     def matched_expression(self, s : str) -> bool :
         pass
 
-    def build_parse_tree(self, exp : str) ->str:
+    def build_parse_tree(self, exp : str) -> str:
         pass
         
 
