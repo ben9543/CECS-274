@@ -15,10 +15,10 @@ class ArrayQueue(Queue):
             Resize the array
         '''
         b = self.new_array(max(1, self.n * 2))
-        k = 0
-        for i in range(self.j, len(self.a)):
-            b[k] = self.a[i % len(self.a)]
-            k+=1
+
+        for i in range(0,n):
+            b[i] = self.a[i+self.j % len(self.a)]
+        self.a = b
         self.j = 0
 
     def add(self, x : np.object) :
@@ -26,16 +26,22 @@ class ArrayQueue(Queue):
             shift all j > i one position to the right
             and add element x in position i
         '''
-        if self.n == len(self.a) : self.resize()
-        for i in range(self.j, self.n) :
-            self.a[i+1%len(self.a)] = self.a[i%len(self.a)]
-        self.a[self.j] = x
- 
+
+        if self.n+1 > len(self.a) :
+            self.resize()
+        self.a[self.j+self.n%len(self.a)] = x
+        self.n += 1
+        return True
+        
     def remove(self) -> np.object :
         '''
             remove the first element in the queue
         '''
-        pass
+        x = self.a[self.j]
+        self.j = self.j+1 % len(self.a)
+        self.n -= 1
+        if len(a) >= 3*self.n: self.resize()
+        return x
 
     def size(self) :
         return self.n
