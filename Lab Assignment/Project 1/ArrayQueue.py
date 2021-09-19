@@ -16,22 +16,21 @@ class ArrayQueue(Queue):
         '''
         b = self.new_array(max(1, self.n * 2))
         k = 0
-        for i in range(self.j):
+        for i in range(self.j, len(self.a)):
             b[k] = self.a[i % len(self.a)]
             k+=1
         self.j = 0
 
-    
     def add(self, x : np.object) :
         '''
             shift all j > i one position to the right
             and add element x in position i
         '''
-        if self.n == len(self.a) :
-            self.resize()
-        ## self.a[j:]
-        
-
+        if self.n == len(self.a) : self.resize()
+        for i in range(self.j, self.n) :
+            self.a[i+1%len(self.a)] = self.a[i%len(self.a)]
+        self.a[self.j] = x
+ 
     def remove(self) -> np.object :
         '''
             remove the first element in the queue
