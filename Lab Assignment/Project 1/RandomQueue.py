@@ -14,7 +14,7 @@ class RandomQueue(Queue):
             Inputs:
                 x: Object type, i.e., any object
         '''
-        pass 
+        self.queue.add(random.randint()) 
 
     def remove(self) -> object:
         '''
@@ -23,9 +23,15 @@ class RandomQueue(Queue):
                     decides which element should be removed.
             Return: Object type
         '''
-        pass
+        x = self.queue.remove()
+        return x
     
     def size(self) -> int:
         return self.queue.size()
 
 
+r = RandomQueue()
+r.add()
+r.add()
+print(r)
+r.remove()
