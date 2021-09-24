@@ -27,7 +27,7 @@ class ArrayQueue(Queue):
         
     def remove(self) -> np.object :
         x = self.a[self.j]
-        self.a[self.j] = 0 # Make value null
+        self.a[self.j] = None # Make value null
         self.j = self.j+1 % len(self.a)
         self.n -= 1
         if len(self.a) >= 3*self.n: self.resize()
