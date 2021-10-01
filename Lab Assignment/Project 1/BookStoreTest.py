@@ -18,7 +18,6 @@ while(b.removeFromShoppingCart()):continue
 for book in b.shoppingCart:print(book)
 
 # Searching for books by at least the following infix
-
 print(b.searchBookByInfix(""))                  # Empty infix
 print(b.searchBookByInfix("World of Pa"))       # Should display 4 books
 print(b.searchBookByInfix("Tears of the Wo"))   # Should display 1 book
