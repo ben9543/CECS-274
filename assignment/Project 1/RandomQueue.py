@@ -14,18 +14,19 @@ class RandomQueue(Queue):
             Inputs:
                 x: Object type, i.e., any object
         '''
-        pass 
+        self.queue.add(x) 
 
     def remove(self) -> object:
-        '''
-            remove: remove the next (previously added) value, y, from the
-                    Queue and return y. The Queue’s queueing discipline 
-                    decides which element should be removed.
-            Return: Object type
-        '''
-        pass
+        ranNum = random.randint(0, self.queue.n-1)
+        modNum = ranNum % len(self.queue.a)
+        temp = self.queue.a[self.queue.j % len(self.queue.a)]
+        self.queue.a[self.queue.j % len(self.queue.a)] = self.queue.a[modNum]
+        self.queue.a[modNum] = temp
+        temp = None
+        x = self.queue.remove()
+
+        [1,2,3, None, None]
+        return x
     
     def size(self) -> int:
         return self.queue.size()
-
-

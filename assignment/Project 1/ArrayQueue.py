@@ -11,34 +11,26 @@ class ArrayQueue(Queue):
         return np.zeros(n, np.object)
     
     def resize(self):
-        '''
-            Resize the array
-        '''
         b = self.new_array(max(1, self.n * 2))
-        for i in range(0,n):
+
+        for i in range(0,self.n):
             b[i] = self.a[i+self.j % len(self.a)]
         self.a = b
         self.j = 0
 
     def add(self, x : np.object) :
-        '''
-            shift all j > i one position to the right
-            and add element x in position i
-        '''
         if self.n+1 > len(self.a) :
             self.resize()
         self.a[self.j+self.n%len(self.a)] = x
         self.n += 1
         return True
-
+        
     def remove(self) -> np.object :
-        '''
-            remove the first element in the queue
-        '''
         x = self.a[self.j]
+        self.a[self.j] = None # Make value null
         self.j = self.j+1 % len(self.a)
         self.n -= 1
-        if len(a) >= 3*self.n: self.resize()
+        if len(self.a) >= 3*self.n: self.resize()
         return x
 
     def size(self) :

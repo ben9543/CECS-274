@@ -9,8 +9,6 @@ import BinaryHeap
 import AdjacencyList
 import time
 
-
-
 class BookStore:
     '''
     BookStore: It simulates a book system such as Amazon. It allows  searching,
@@ -94,6 +92,9 @@ class BookStore:
             the number of books that contains infix in its title   
         '''
         numberOfBooks = 0
+        for book in self.bookCatalog:
+            if infix in book.title:
+                numberOfBooks+=1
         return numberOfBooks
 
     def sortUsingMergeSort(self) :

@@ -1,0 +1,22 @@
+import RandomQueue
+
+q = RandomQueue.RandomQueue()
+
+q.add(1)
+print(q.queue)
+q.add(2)
+print(q.queue)
+q.add(3)
+print(q.queue)
+q.add(4)
+print(q.queue)
+q.add(5)
+print(q.queue)
+q.remove()
+print(q.queue)
+q.remove()
+print(q.queue)
+q.remove()
+print(q.queue)
+q.remove()
+print(q.queue)
