@@ -123,8 +123,6 @@ class ArrayList(List):
              raise StopIteration()
         return x
 
-
-
 '''
 arraylist = ArrayList()
 arraylist.append("a")

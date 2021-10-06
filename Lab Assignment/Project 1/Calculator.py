@@ -17,7 +17,14 @@ class Calculator:
         return t
 
     def matched_expression(self, s : str) -> bool :
-        pass
+        stack = list()
+        for c in s:
+            if c=="(":
+                stack.append(c)
+            elif c==")":
+                stack.pop()
+        if stack is None: return True
+        else return False
 
     def build_parse_tree(self, exp : str) -> str:
         pass
