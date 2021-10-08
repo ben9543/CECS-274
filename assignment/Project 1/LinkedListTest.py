@@ -17,6 +17,44 @@ should return i + 1. Remove 2 elements, e.g., index 2 and 3 and the final list s
 
 '''
 
+print("Stack: ")
 stack = SLLStack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push(4)
+stack.push(5)
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+print(stack.pop())
+
+print("\nQueue: ")
 queue = SLLQueue()
+queue.add(1)
+queue.add(2)
+queue.add(3)
+queue.add(4)
+queue.add(5)
+print(queue.remove())
+print(queue.remove())
+print(queue.remove())
+print(queue.remove())
+print(queue.remove())
+
+print("\nDLList: ")
 dllist = DLList()
+dllist.add(0, 4)
+dllist.add(0, 1)
+dllist.add(1, 3)
+dllist.add(1, 2)
+dllist.add(4, 5)
+print(dllist.get(0)) # should return i + 1.
+print(dllist.get(1)) # should return i + 1.
+print(dllist.get(2)) # should return i + 1.
+print(dllist.get(3)) # should return i + 1.
+print(dllist.get(4)) # should return i + 1.
+dllist.remove(2)
+dllist.remove(3)
+print(dllist)
