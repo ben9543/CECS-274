@@ -66,7 +66,19 @@ class DLList(List):
         self.add(self.n, x)
 
     def isPalindrome(self) -> bool :
-        pass
+        p = self.dummy
+        ahead = p.next
+        before = p.prev
+        if self.n%2 == 1: self.n -= 1
+        for _ in range(0, self.n):
+            if ahead.x == before.x:
+                ahead = ahead.next
+                before = before.prev
+            else:
+                return False
+        return True
+
+
 
     def reverse(self) :
         pass

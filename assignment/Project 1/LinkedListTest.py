@@ -57,4 +57,37 @@ print(dllist.get(3)) # should return i + 1.
 print(dllist.get(4)) # should return i + 1.
 dllist.remove(2)
 dllist.remove(3)
-print(dllist)
+
+# isPalindrome() test
+# Question: the element at position i is equal to the element at position n − i − 1 
+dllist = DLList()
+
+# With 'a'
+dllist.add(0, 'a')
+print(dllist.isPalindrome())
+
+# With 'hannah'
+dllist = DLList()
+dllist.add(0, 'h')
+dllist.add(1, 'a')
+dllist.add(2, 'n')
+dllist.add(3, 'n')
+dllist.add(4, 'a')
+dllist.add(5, 'h')
+print(dllist.isPalindrome())
+
+# With 'eve'
+dllist = DLList()
+dllist.add(0, 'e')
+dllist.add(1, 'v')
+dllist.add(2, 'e')
+print(dllist.isPalindrome())
+
+# With a word that is not palindrome
+dllist = DLList()
+dllist.add(0, 'e')
+dllist.add(1, 'v')
+dllist.add(2, 'a')
+dllist.add(3, 'v')
+dllist.add(4, 'a')
+print(dllist.isPalindrome())
