@@ -14,10 +14,20 @@ class SLLStack(Stack):
         self.n = 0
    
     def push(self, x : np.object) :
-        pass
-        
+        u = self.Node(x)
+        u.next = self.head
+        self.head = u
+        if self.n == 0: self.tail = u
+        self.n += 1
+        return x
+
     def pop(self) -> np.object:
-        pass
+        if self.n == 0: return None
+        x = self.head.x
+        self.head = self.head.next 
+        self.n -= 1
+        if self.n == 0: self.tail = None
+        return x
 
     def size(self) -> int:
         return self.n

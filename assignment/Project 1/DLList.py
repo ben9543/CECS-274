@@ -16,13 +16,25 @@ class DLList(List):
         self.n = 0
    
     def get_node(self, i : int) -> Node:
-        pass
-        
+        p = None
+        if i < self.n/2:
+            p = self.dummy.next
+            for k in range(0,i):
+                p = p.next
+        else:
+            p = self.dummy
+            for k in range(0, self.n - i):
+                p = p.prev
+        return p
+
     def get(self, i) -> np.object:
-        pass
+        return self.get_node(i).x
 
     def set(self, i : int, x : np.object) -> np.object:
-        pass
+        u = self.get_node(i)
+        y = u.x
+        u.x = x
+        return y
 
     def add_before(self, w : Node, x : np.object) -> Node:
         pass
