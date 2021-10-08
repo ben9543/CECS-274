@@ -14,11 +14,20 @@ class SLLQueue(Queue):
         
 
     def add(self, x :np.object) :
-        pass
-
+        u = self.Node(x)
+        if self.n == 0: self.head = u
+        else: self.tail.next = u
+        self.tail = u
+        self.n += 1
+        return True
 
     def remove(self) -> np.object:
-        pass
+        if self.n == 0: return None
+        x = self.head.x
+        self.head = self.head.next 
+        self.n -= 1
+        if self.n == 0: self.tail = None
+        return x
 
     def size(self) -> int:
         return self.n
