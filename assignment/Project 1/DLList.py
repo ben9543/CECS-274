@@ -19,11 +19,11 @@ class DLList(List):
         p = None
         if i < self.n/2:
             p = self.dummy.next
-            for k in range(0,i):
+            for _ in range(0,i):
                 p = p.next
         else:
             p = self.dummy
-            for k in range(0, self.n - i):
+            for _ in range(0, self.n - i):
                 p = p.prev
         return p
 
