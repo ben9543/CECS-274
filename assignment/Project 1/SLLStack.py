@@ -13,7 +13,7 @@ class SLLStack(Stack):
         self.tail = None
         self.n = 0
    
-    def push(self, x : np.object) :
+    def push(self, x : np.object):
         pass
         
     def pop(self) -> np.object:
