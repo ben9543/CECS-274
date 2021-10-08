@@ -18,10 +18,12 @@ class DLList(List):
     def get_node(self, i : int) -> Node:
         p = None
         if i < self.n/2:
+            # Start from dummy.next
             p = self.dummy.next
             for _ in range(0,i):
                 p = p.next
         else:
+            # Start from dummy
             p = self.dummy
             for _ in range(0, self.n - i):
                 p = p.prev
@@ -37,16 +39,25 @@ class DLList(List):
         return y
 
     def add_before(self, w : Node, x : np.object) -> Node:
-        pass
+        u = self.Node(x)
+        u.prev = w.prev
+        u.next = w
+        w.prev = u # Same as: u.next.prev = u
+        u.prev.next = u
+        self.n += 1
+        return u
             
     def add(self, i : int, x : np.object)  :
-        pass
+        self.add_before(self.get_node(i), x)
 
     def _remove(self, w : Node) :
-        pass
+        w.prev.next = w.next
+        w.next.prev = w.prev
+        self.n -= 1
+
     
     def remove(self, i :int) :
-        pass
+        self._remove(self.get_node(i))
 
     def size(self) -> int:
         return self.n
