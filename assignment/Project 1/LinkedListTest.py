@@ -103,7 +103,7 @@ dllist.add(4, 5)
 dllist.reverse()
 print(dllist)
 
-'''
+
 # 4. MaxStack
 m = MaxStack()
 m.push(3)
@@ -117,4 +117,3 @@ print(m.max())
 m.pop()
 print(m.max())
 # print(m.size())
-'''
