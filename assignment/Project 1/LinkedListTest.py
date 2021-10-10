@@ -1,6 +1,7 @@
 from SLLStack import SLLStack
 from SLLQueue import SLLQueue
 from DLList import DLList
+from MaxStack import MaxStack
 
 '''
 Remove one element from an empty Stack, Queue, List
@@ -91,3 +92,26 @@ dllist.add(2, 'a')
 dllist.add(3, 'v')
 dllist.add(4, 'a')
 print(dllist.isPalindrome())
+
+# Reverse
+dllist = DLList()
+dllist.add(0, 1)
+dllist.add(1, 2)
+dllist.add(2, 3)
+dllist.add(3, 4)
+dllist.add(4, 5)
+# dllist.reverse()
+
+# 4. MaxStack
+m = MaxStack()
+m.push(3)
+m.push(1)
+m.push(4)
+m.push(2)
+print(m.max())
+m.pop()
+m.pop()
+print(m.max())
+m.pop()
+print(m.max())
+# print(m.size())

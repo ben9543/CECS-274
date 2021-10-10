@@ -78,10 +78,32 @@ class DLList(List):
                 return False
         return True
 
-
-
     def reverse(self) :
-        pass
+        if self.n == 0 : return
+        last = self.dummy
+        curr = self.dummy.next
+        
+        for _ in range(self.n-1):
+            last = self.dummy.prev
+
+            if curr == last: continue
+            last.prev.next = self.dummy
+            self.dummy.prev = last.prev
+            last.prev = self.dummy
+            self.dummy.next = last
+
+            last.next = curr
+            curr.prev = last
+
+            print(curr.x)
+            print(last.x)
+            curr = curr.next
+
+            #print(self.dummy.next.x)
+            #print(self.dummy.prev.x)
+            
+
+            
 
          
     def __str__(self):
