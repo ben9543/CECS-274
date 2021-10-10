@@ -78,31 +78,17 @@ class DLList(List):
                 return False
         return True
 
+    # Switch each node's prev and next until current node points to self.dummy
     def reverse(self) :
         if self.n == 0 : return
-        last = self.dummy
-        curr = self.dummy.next
-        
-        for _ in range(self.n-1):
-            last = self.dummy.prev
-
-            if curr == last: continue
-            last.prev.next = self.dummy
-            self.dummy.prev = last.prev
-            last.prev = self.dummy
-            self.dummy.next = last
-
-            last.next = curr
-            curr.prev = last
-
-            print(curr.x)
-            print(last.x)
-            curr = curr.next
-
-            #print(self.dummy.next.x)
-            #print(self.dummy.prev.x)
-            
-
+        originalDummy = self.dummy
+        curr = self.dummy
+        while True:
+            prev = curr.prev
+            curr.prev = curr.next 
+            curr.next = prev
+            curr = curr.prev
+            if curr == originalDummy: break
             
 
          
