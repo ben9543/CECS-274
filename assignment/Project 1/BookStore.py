@@ -8,6 +8,8 @@ import BinarySearchTree
 import BinaryHeap
 import AdjacencyList
 import time
+import DLList
+import MaxStack
 
 class BookStore:
     '''
@@ -15,8 +17,8 @@ class BookStore:
     removing and adding in a shopping cart. 
     '''
     def __init__(self) :
-        self.bookCatalog = ArrayList.ArrayList()
-        self.shoppingCart = ArrayQueue.ArrayQueue()
+        self.bookCatalog = DLList.DLList()
+        self.shoppingCart = MaxStack.MaxStack()
         self.indexKey = ChainedHashTable.ChainedHashTable()
         self.indexSortedPrefix = BinarySearchTree.BinarySearchTree()
         self.bookSortedCatalog = ArrayList.ArrayList()
@@ -53,7 +55,7 @@ class BookStore:
         if i >= 0 and i < self.bookCatalog.size():
             start_time = time.time()
             s = self.bookCatalog.get(i)
-            self.shoppingCart.add(s)
+            self.shoppingCart.push(s)
             elapsed_time = time.time() - start_time
             print(f"Added to shopping cart {s} \n{elapsed_time} seconds")
 
@@ -94,7 +96,9 @@ class BookStore:
         numberOfBooks = 0
         for book in self.bookCatalog:
             if infix in book.title:
+                print(book)
                 numberOfBooks+=1
+            if numberOfBooks >= 50: break
         return numberOfBooks
 
     def sortUsingMergeSort(self) :
@@ -115,7 +119,7 @@ class BookStore:
         '''
         start_time = time.time()
         if self.shoppingCart.size() > 0:
-            u = self.shoppingCart.remove()
+            u = self.shoppingCart.pop()
             elapsed_time = time.time() - start_time
             print(f"removeFromShoppingCart {u} Completed in {elapsed_time} seconds")
             return u
