@@ -26,7 +26,12 @@ class BinaryTree:
         self.nil = None
 
     def depth(self, u : Node) -> int:
-        pass
+        d = 0
+        while True:
+            u = u.parent
+            d += 1
+            if u!=self.r : break
+        return d
 
     def size(self) -> int:
         pass

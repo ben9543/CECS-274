@@ -7,11 +7,12 @@ class MaxStack(Stack) :
         self.max_stack = SLLStack.SLLStack()
         
     def max(self) ->object:
-        return self.max_stack.top()
+        return self.max_stack.head.x
     
     def push(self, x : object) : 
         self.stack.push(x)
-        self.max_stack.push(max(x, self.max_stack.top()))
+        if self.max_stack.head is None: self.max_stack.push(x)
+        else: self.max_stack.push(max(x, self.max_stack.head.x))
 
     def pop(self) -> object:
         self.max_stack.pop()
