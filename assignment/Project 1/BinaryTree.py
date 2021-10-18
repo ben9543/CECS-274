@@ -44,7 +44,9 @@ class BinaryTree:
         pass
 
     def height(self) -> int:
-        pass
+        if self.u==self.nil:return 0
+        return 1+max(self.height(self.u.left), self.height(self.u.right))
+
     
     def _height(self, u : Node) -> int:
         if u == self.nil: return 0
