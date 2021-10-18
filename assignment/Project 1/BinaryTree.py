@@ -34,7 +34,8 @@ class BinaryTree:
         return d
 
     def size(self) -> int:
-        pass
+        if self.u == self.nil: return 0
+        return 1 + self._size(self.u.left) + self._size(self.u.right)
     
     def _size(self, u : Node) -> int:
         if u == self.nil: return 0
