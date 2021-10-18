@@ -81,13 +81,19 @@ class BinaryTree:
         return w
     
     def in_order(self) :
-        pass
+        if self.u.left != self.nil: self.in_order(self.u.left)
+        print(self.u.x)
+        if self.u.right != self.nil: self.in_order(self.u.right)
 
     def pre_order(self) :
-        pass
+        print(self.u.x)
+        if self.u.left != self.nil: self.in_order(self.u.left)
+        if self.u.right != self.nil: self.in_order(self.u.right)
 
     def post_order(self) :
-        pass
+        if self.u.left != self.nil: self.in_order(self.u.left)
+        if self.u.right != self.nil: self.in_order(self.u.right)
+        print(self.u.x)
 
     def __str__(self):
         l = []
