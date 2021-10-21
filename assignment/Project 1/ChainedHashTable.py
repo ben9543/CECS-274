@@ -30,18 +30,37 @@ class ChainedHashTable(Set):
         return self.n
         
     def find(self, key : object) -> object :
-        pass
+        for y in self.t[self.hash(key)]:
+            if y == key: return y
+        return None
         
     def add(self, key : object, value : object) :
-        pass
-
+        if self.find(key) != None: return False
+        if self.n+1 > len(self.t): self.resize()
+        self.t[self.hash(key)].append(self.Node(key, value))
+        self.n += 1
+        return True
 
     def remove(self, key : int)  -> object:
-        pass
+        l = self.t[self.hash(key)]
+        for y in l:
+            if y.key == key:
+                l.remove(key)
+                self.n-=1
+                if 3*self.n < len(self.t): self.resize()
+                return y
+        return None
     
     def resize(self):
-        pass
-
+        print("Resize called")
+        if self.n == len(self.t): self.d+=1
+        else: self.d-=1
+        a = self.alloc_table(2**self.d)
+        for j in range(0, len(self.t)):
+            for i in range(0, self.t[j].size()):
+                ith_node = self.t[j].get(i)
+                a[self.hash(ith_node.key)].append(ith_node)
+        self.t = a
 
     def __str__(self):
         s = "["
@@ -55,5 +74,8 @@ class ChainedHashTable(Set):
         return s + "]"
 
 
-
-
+c = ChainedHashTable()
+c.add(0, 0)
+c.add(1, 1)
+c.add(2, 2)
+c.remove(1)
