@@ -60,7 +60,13 @@ class BinaryTree:
         pass
 
     def bf_traverse(self):
-        pass
+        q = ArrayQueue.ArrayQueue()
+        if self.r != self.nil : q.add(self.r)
+        while True:
+            self.u = q.remove()
+            if self.u.left != self.nil : q.add(self.u.left)
+            if self.u.right != self.nil : q.add(self.u.right)
+            if q.size() > 0: break
             
     def first_node(self):
         w = self.r
