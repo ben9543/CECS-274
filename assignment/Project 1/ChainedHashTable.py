@@ -73,7 +73,6 @@ class ChainedHashTable(Set):
                 s += ";"
         return s + "]"
 
-
 c = ChainedHashTable()
 c.add(0, 0)
 c.add(1, 1)

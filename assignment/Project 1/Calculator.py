@@ -17,7 +17,6 @@ class Calculator:
         return t
 
     def matched_expression(self, s : str) -> bool :
-<<<<<<< HEAD:Lab Assignment/Project 1/Calculator.py
         stack = list()
         for c in s:
             if c=="(":
@@ -26,7 +25,7 @@ class Calculator:
                 stack.pop()
         if stack is None: return True
         else return False
-=======
+
         stack = ArrayStack.ArrayStack()
         try:
             for c in s:
@@ -36,7 +35,6 @@ class Calculator:
             return False
         except IndexError:
             return False
->>>>>>> e07ae2437cad4c35d01277c5a29a7602e0113037:assignment/Project 1/Calculator.py
 
     def build_parse_tree(self, exp : str) -> str:
         pass
