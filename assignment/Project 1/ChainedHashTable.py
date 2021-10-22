@@ -31,7 +31,7 @@ class ChainedHashTable(Set):
         
     def find(self, key : object) -> object :
         for y in self.t[self.hash(key)]:
-            if y == key: return y
+            if y.key == key: return y.value
         return None
         
     def add(self, key : object, value : object) :
@@ -52,7 +52,7 @@ class ChainedHashTable(Set):
         return None
     
     def resize(self):
-        print("Resize called")
+        # print("Resize called")
         if self.n == len(self.t): self.d+=1
         else: self.d-=1
         a = self.alloc_table(2**self.d)
@@ -73,9 +73,26 @@ class ChainedHashTable(Set):
                 s += ";"
         return s + "]"
 
+'''
+• Remove one element from an empty ChainedHashTable
+• Search in an empty ChainedHashTable: f ind(2) should return nil
+• Add 3 elements: add(1, “f irst”), add(2, “second”), add(3, “fourth”)
+• Check that size() returns 3
+• find one element, f ind(3) should return “fourth”
+• Remove one element: remove(3) and check that size() returns 2.
+• Find one element: f ind(3) should return nil
+• Add 3 elements: add(3, “third”), add(4, “fourth”), add(5, “f if th”).
+• Check that size() returns 5
+• Find one element: f ind(3) should return “third”
+'''
 
 c = ChainedHashTable()
-c.add(0, 0)
-c.add(1, 1)
-c.add(2, 2)
-c.remove(1)
+print(c.remove(1))
+print(c.find(2))
+c.add(1, "First")
+c.add(2, "Second")
+c.add(3, "Fourth")
+print(c.size())
+print(c.find(3))
+print(c)
+# c.remove(1)
