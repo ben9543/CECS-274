@@ -52,7 +52,6 @@ class ChainedHashTable(Set):
         return None
     
     def resize(self):
-        # print("Resize called")
         if self.n == len(self.t): self.d+=1
         else: self.d-=1
         a = self.alloc_table(2**self.d)
