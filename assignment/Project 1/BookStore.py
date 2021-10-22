@@ -55,7 +55,7 @@ class BookStore:
         if i >= 0 and i < self.bookCatalog.size():
             start_time = time.time()
             s = self.bookCatalog.get(i)
-            self.shoppingCart.push(s)
+            self.shoppingCart.add(s)
             elapsed_time = time.time() - start_time
             print(f"Added to shopping cart {s} \n{elapsed_time} seconds")
 
@@ -119,7 +119,7 @@ class BookStore:
         '''
         start_time = time.time()
         if self.shoppingCart.size() > 0:
-            u = self.shoppingCart.pop()
+            u = self.shoppingCart.remove()
             elapsed_time = time.time() - start_time
             print(f"removeFromShoppingCart {u} Completed in {elapsed_time} seconds")
             return u
