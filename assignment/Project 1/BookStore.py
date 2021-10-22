@@ -17,8 +17,8 @@ class BookStore:
     removing and adding in a shopping cart. 
     '''
     def __init__(self) :
-        self.bookCatalog = DLList.DLList()
-        self.shoppingCart = MaxStack.MaxStack()
+        self.bookCatalog = ArrayList.ArrayList()
+        self.shoppingCart = ArrayQueue.ArrayQueue()
         self.indexKey = ChainedHashTable.ChainedHashTable()
         self.indexSortedPrefix = BinarySearchTree.BinarySearchTree()
         self.bookSortedCatalog = ArrayList.ArrayList()

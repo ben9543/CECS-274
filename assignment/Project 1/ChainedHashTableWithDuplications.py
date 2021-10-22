@@ -15,11 +15,9 @@ class ChainedHashTableWithDuplications(Set):
         
     def add(self, key : object, value : object) :
         pass
-
-
+    
     def remove(self, key : int)  -> object:
         pass
-    
     
     def __str__(self):
         return self.cht.__str__()
