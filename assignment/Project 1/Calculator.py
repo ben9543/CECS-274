@@ -17,7 +17,7 @@ class Calculator:
         if not self.matched_expression(s): return "Invalid expression"
         for c in s:
             if self.dict.find(c):
-                t+=self.dict.find(c)
+                t+=str(self.dict.find(c))
             else: t+=c
         return t
 
@@ -57,12 +57,13 @@ s.set_variable("d", 3.0)
 print(s.evaluate("((a*b)+(c*d))"))
 '''
 
-
+# print_expression
+'''
 s = Calculator()
 s.set_variable("a", 1.3)
 s.set_variable("b", 2.1)
 s.set_variable("c", 2.2)
 s.set_variable("d", 3.0)
-print(s.dict.find('c'))
 r = s.print_expression("((a ∗ b) + (c ∗ d))")
 print(r)
+'''
