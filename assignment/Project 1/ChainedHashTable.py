@@ -31,7 +31,7 @@ class ChainedHashTable(Set):
         
     def find(self, key : object) -> object :
         for y in self.t[self.hash(key)]:
-            if y == key: return y
+            if y.key == key: return y.value
         return None
         
     def add(self, key : object, value : object) :
@@ -52,7 +52,7 @@ class ChainedHashTable(Set):
         return None
     
     def resize(self):
-        print("Resize called")
+        #print("Resize called")
         if self.n == len(self.t): self.d+=1
         else: self.d-=1
         a = self.alloc_table(2**self.d)
