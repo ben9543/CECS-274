@@ -38,6 +38,7 @@ class BookStore:
                 (key, title, group, rank, similar) = line.split("^")
                 b = Book.Book(key, title, group, rank, similar)
                 self.bookCatalog.append(b)
+                self.indexKey.add(key, self.bookCatalog.size()-1)
             # The following line is used to calculate the total time 
             # of execution
             elapsed_time = time.time() - start_time
@@ -65,7 +66,8 @@ class BookStore:
         input: 
             s: key string    
         '''
-        pass
+        index = self.indexKey.find(s)
+        if index != None: self.addBookByIndex(index)
 
     def addBookByPrefix(self, s : str) :
         '''
@@ -82,7 +84,6 @@ class BookStore:
         distance = self.similaGraph.distance(i, j)
         print(f"{s1} and {s2} are at distance {distance}")
         return distance
-
 
 
     def searchBookByInfix(self, infix : str) -> int:

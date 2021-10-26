@@ -3,6 +3,8 @@ from BookStore import BookStore
 b = BookStore()
 b.loadCatalog("books.txt")
 
+''' Lab2 - LinkedList
+
 # Remove a book from an empty shoppingCart
 b.removeFromShoppingCart()
 
@@ -20,3 +22,14 @@ while(b.removeFromShoppingCart()):continue
 b.searchBookByInfix("") # Empty infix
 b.searchBookByInfix("World of Pa")      # Should display 4 books
 b.searchBookByInfix("Tears of the Wo")   # Should display 1 book
+'''
+
+''' Lab3 - HashTables
+Searching for books by:
+(a) Empty prefix.
+(b) "1567302181" : Titlke "The Eel"
+(c) "0525444475" : Title "The World of Pooh : The Complete Winnie-the-Pooh and The
+House at Pooh Corner (Pooh Original Edition)"
+'''
+
+b.searchBookByInfix
