@@ -85,6 +85,7 @@ class ChainedHashTable(Set):
 • Find one element: f ind(3) should return “third”
 '''
 
+'''
 c = ChainedHashTable()
 print(c.remove(1))
 print(c.find(2))
@@ -95,3 +96,4 @@ print(c.size())
 print(c.find(3))
 print(c)
 # c.remove(1)
+'''

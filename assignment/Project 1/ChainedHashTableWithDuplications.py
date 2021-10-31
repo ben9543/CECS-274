@@ -14,7 +14,9 @@ class ChainedHashTableWithDuplications(Set):
         pass
         
     def add(self, key : object, value : object) :
-        pass
+        # if not self.chainHashTable.add(key, value):
+        pass    
+
     
     def remove(self, key : int)  -> object:
         pass
@@ -23,5 +25,7 @@ class ChainedHashTableWithDuplications(Set):
         return self.cht.__str__()
 
 
-
-
+c = ChainedHashTableWithDuplications()
+c.chainHashTable.add("a", 1)
+r = c.chainHashTable.add("a", 2)
+print(c.chainHashTable, r)
