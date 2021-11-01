@@ -24,8 +24,9 @@ class ChainedHashTableWithDuplications(Set):
     def __str__(self):
         return self.cht.__str__()
 
-
+'''
 c = ChainedHashTableWithDuplications()
 c.chainHashTable.add("a", 1)
 r = c.chainHashTable.add("a", 2)
 print(c.chainHashTable, r)
+'''
