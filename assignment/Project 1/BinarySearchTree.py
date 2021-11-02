@@ -26,10 +26,29 @@ class BinarySearchTree(BinaryTree, Set):
         pass
 
     def find_eq(self, x : object) -> object:
-        pass
+        w = self.r
+        while w is not self.nil:
+            if x < w.x:
+                w = w.left
+            elif x > w.x:
+                w = w.right
+            else:
+                return w.x
+        return self.nil
     
     def find(self, x: object) -> object:
-        pass
+        w = self.r
+        z = self.nil
+        while w is not self.nil:
+            if x < w.x:
+                z = w
+                w = w.left
+            elif x > w.x:
+                w = w.right
+            else:
+                return w.x
+        if z == self.nil: return self.nil
+        return z.x
         
     def add(self, key : object, value : object) -> bool:
         pass
