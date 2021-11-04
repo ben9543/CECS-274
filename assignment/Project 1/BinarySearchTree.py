@@ -35,7 +35,7 @@ class BinarySearchTree(BinaryTree, Set):
             else:
                 return w.x
         return self.nil
-    
+
     def find(self, x: object) -> object:
         w = self.r
         z = self.nil
@@ -49,7 +49,7 @@ class BinarySearchTree(BinaryTree, Set):
                 return w.x
         if z == self.nil: return self.nil
         return z.x
-        
+    
     def add(self, key : object, value : object) -> bool:
         pass
         
@@ -57,11 +57,25 @@ class BinarySearchTree(BinaryTree, Set):
         pass
     
     def splice(self, u: BinaryTree.Node):
-        pass
+        s = None
+        p = None
+        if u.left is not self.nil: s = u.left
+        else: s = u.right
+
+        # Handling when u is a root node
+        if u == self.r:
+            self.r = s
+            p = self.nil
+        else:
+            p = u.parent
+            if p.left == u: p.left = s
+            else: p.right = s
+        if s is not self.nil: s.parent = p
+        self.n -= 1
 
     def remove_node(self, u : BinaryTree.Node):
         pass
-
+    
     def remove(self, x : object) -> bool:
         pass
              

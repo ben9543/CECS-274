@@ -68,4 +68,9 @@ Question6: Write a function to check if there exists a subtree in a given binary
 tree (r) whose sum of all nodes is equal to a given number (sum)
 '''
 def sum_subtree_util(ptr, cur_sum, sum):
-    pass
+    if ptr == None:
+        cur_sum[0] = 0
+        return False
+    sum_left, sum_right = [0],[0]
+    x=sum_subtree_util(ptr.left, sum_left, sum)
+    y=sum_subtree_util(ptr.right, sum_right, sum)
