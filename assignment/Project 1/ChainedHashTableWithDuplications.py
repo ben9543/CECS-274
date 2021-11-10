@@ -11,11 +11,21 @@ class ChainedHashTableWithDuplications(Set):
         return self.n
         
     def find(self, key : object) -> object :
-        pass
+        a = []
+        if key == None:
+            return IndexError
+        # Resize
+        self.chainHashTable.find(key)
         
     def add(self, key : object, value : object) :
-        # if not self.chainHashTable.add(key, value):
-        pass    
+        
+        if not self.chainHashTable.add(key, value):
+            # add a list
+            pass
+        else:
+            # self.find(key).add(value)
+            pass
+        
     
     def remove(self, key : int)  -> object:
         pass

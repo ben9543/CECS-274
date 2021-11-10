@@ -74,3 +74,5 @@ def sum_subtree_util(ptr, cur_sum, sum):
     sum_left, sum_right = [0],[0]
     x=sum_subtree_util(ptr.left, sum_left, sum)
     y=sum_subtree_util(ptr.right, sum_right, sum)
+    cur_sum[0] = (sum_left[0] + sum_right[0] + ptr.data)
+    return ((x or y) or (cur_sum[0]==sum))
