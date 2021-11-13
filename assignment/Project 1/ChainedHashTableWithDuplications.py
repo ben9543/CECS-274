@@ -11,23 +11,6 @@ class ChainedHashTableWithDuplications(Set):
         return self.n
         
     def find(self, key : object) -> object :
-<<<<<<< HEAD
-        a = []
-        if key == None:
-            return IndexError
-        # Resize
-        self.chainHashTable.find(key)
-        
-    def add(self, key : object, value : object) :
-        
-        if not self.chainHashTable.add(key, value):
-            # add a list
-            pass
-        else:
-            # self.find(key).add(value)
-            pass
-        
-=======
         return self.chainHashTable.find(key)
         
     def add(self, key : object, value : object) :
@@ -38,7 +21,6 @@ class ChainedHashTableWithDuplications(Set):
             newList = DLList()
             newList.append(value)
             self.chainHashTable.add(key, newList)
->>>>>>> 63a94c57c1e2ef56d44c6449b5c89c0660052530
     
     def remove(self, key : int)  -> object:
         return self.chainHashTable.remove(key)

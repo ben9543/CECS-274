@@ -18,12 +18,35 @@ class BinarySearchTree(BinaryTree, Set):
         u.left = u.right = u.parent = self.nil
         return u
     
-        
+    # x is just value
     def find_last(self, x : object) -> BinaryTree.Node:
-        pass
-        
+        w = self.r
+        prev = self.nil
+        while w == self.nil:
+            prev = w
+            if x < w.x:
+                w = w.left
+            elif x > w.x:
+                w = w.right
+            else:
+                return w
+        return prev
+    
+    # inserting u as p's child
     def add_child(self, p : BinaryTree.Node, u : BinaryTree.Node) -> bool:
-        pass
+        if p == self.nil:
+            self.r = u # inserting into empty tree
+        else:
+            if u.x < p.x:
+                p.left = u
+            elif u.x > p.x:
+                p.right = u
+            else:
+                return False # u.x is already in the tree
+            u.parent = p
+        self.n += 1
+        return True
+
 
     def find_eq(self, x : object) -> object:
         w = self.r
@@ -50,7 +73,10 @@ class BinarySearchTree(BinaryTree, Set):
         if z == self.nil: return self.nil
         return z.x
     
+    # Question: What is key and value
     def add(self, key : object, value : object) -> bool:
+        # p = self.find_last(x)
+        # return add_child(p, self.new_node(x))
         pass
         
     def add_node(self, u : BinaryTree.Node) -> bool:
@@ -74,10 +100,20 @@ class BinarySearchTree(BinaryTree, Set):
         self.n -= 1
 
     def remove_node(self, u : BinaryTree.Node):
-        pass
+        if u.left == self.nil or u.right == self.nil:
+            self.splice(u)
+        else:
+            w = u.right
+            while w.left == self.nil:
+                w = w.left
+            u.x = w.x
+            self.splice(w)
     
     def remove(self, x : object) -> bool:
-        pass
+        u = self.find_eq(x)
+        if u == self.nil: return False
+        self.remove_node(u)
+        return True
              
     def __iter__(self):
         u = self.first_node()
@@ -86,23 +122,3 @@ class BinarySearchTree(BinaryTree, Set):
             u = self.next_node(u)
 
 
-'''         
-q = BinarySearchTree()
-q.add(3, "third")
-q.add(2, "second")
-q.add(1, "first")
-print(q.find(2.5))
-q.remove(3)
-print(q.find(3))
-q.add(3, "third")
-q.add(5, "fifth")
-q.add(4, "fourth")
-print(q.find_eq(3.4))
-print(q.find(3.4))
-print("In order")
-q.in_order()
-print("Pre oder")
-q.pre_order()
-print("Pos order")
-q.pos_order()
-'''
