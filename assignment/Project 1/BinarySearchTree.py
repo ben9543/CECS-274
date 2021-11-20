@@ -22,7 +22,6 @@ class BinarySearchTree(BinaryTree, Set):
     # x is just value
     def find_last(self, x : object) -> BinaryTree.Node:
         w = self.r
-        print("Root: ", w)
         prev = self.nil
         try:
             while w != self.nil:
@@ -33,8 +32,6 @@ class BinarySearchTree(BinaryTree, Set):
                     w = w.right
                 else:
                     return w
-            print("Left: ", w.left)
-            print("Right: ", w.right)
         except:
             pass
 
@@ -64,7 +61,7 @@ class BinarySearchTree(BinaryTree, Set):
             elif x > w.x:
                 w = w.right
             else:
-                return w.x
+                return w
         return self.nil
 
     def find(self, x: object) -> object:
@@ -77,9 +74,9 @@ class BinarySearchTree(BinaryTree, Set):
             elif x > w.x:
                 w = w.right
             else:
-                return w.x
+                return w.v
         if z == self.nil: return self.nil
-        return z.x
+        return z.v
     
     # Question: What is key and value
     def add(self, key : object, value : object) -> bool:
