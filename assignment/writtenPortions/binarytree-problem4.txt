@@ -1,0 +1,6 @@
+4. What is the advantage and disadvantage of BinarySearchTree over HashTable data structures.
+
+When you want to find an element by its value, BST gives you the best time-complexity among all those data structures.
+But when you have to access the element often, using hashtable is much efficient.
+So probably the best way of using BST is combining it with hashtable since you can search fast and then if you need it, 
+you can store it in hashtable so that you can access it easily by its key with O(1) time comeplexity.
