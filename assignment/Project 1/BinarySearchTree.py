@@ -13,23 +13,31 @@ class BinarySearchTree(BinaryTree, Set):
         self.r = self.nil
         self.n = 0
 
-    def new_node(self, x):
-        u = BinaryTree.Node(x)
+    # Changed the parameter to accept value. Is it okay??
+    def new_node(self, x, value):
+        u = BinaryTree.Node(x, value)
         u.left = u.right = u.parent = self.nil
         return u
     
     # x is just value
     def find_last(self, x : object) -> BinaryTree.Node:
         w = self.r
+        print("Root: ", w)
         prev = self.nil
-        while w == self.nil:
-            prev = w
-            if x < w.x:
-                w = w.left
-            elif x > w.x:
-                w = w.right
-            else:
-                return w
+        try:
+            while w != self.nil:
+                prev = w
+                if x < w.x:
+                    w = w.left
+                elif x > w.x:
+                    w = w.right
+                else:
+                    return w
+            print("Left: ", w.left)
+            print("Right: ", w.right)
+        except:
+            pass
+
         return prev
     
     # inserting u as p's child
@@ -75,9 +83,8 @@ class BinarySearchTree(BinaryTree, Set):
     
     # Question: What is key and value
     def add(self, key : object, value : object) -> bool:
-        # p = self.find_last(x)
-        # return add_child(p, self.new_node(x))
-        pass
+        p = self.find_last(key)
+        return self.add_child(p, self.new_node(key, value))
         
     def add_node(self, u : BinaryTree.Node) -> bool:
         pass
@@ -120,5 +127,3 @@ class BinarySearchTree(BinaryTree, Set):
         while u != self.nil:
             yield u.x
             u = self.next_node(u)
-
-

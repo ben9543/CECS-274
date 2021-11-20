@@ -103,5 +103,5 @@ class BinaryTree:
 
     def __str__(self):
         l = []
-        #self.in_order(self.r, l)
+        # self.in_order(self.r, l)
         return ', '.join(map(str, l))

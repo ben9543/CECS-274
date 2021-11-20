@@ -1,7 +1,0 @@
-Q. What is the advantage and disadvantage of Hash Tables over Array-Based and Linked list
-data structures.
-
-Hash Tables have advantages with Time complexity over Array-Based and Linked list data structures,
-since it takes O(n) time complexity to find an element. Also we are able to index elements by their keys.
-But have disadvantages with Space complexity compared to Array-Based and Linked list data structures,
-since Hash Tables take up more memory.

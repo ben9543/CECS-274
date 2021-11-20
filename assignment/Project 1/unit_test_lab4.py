@@ -54,7 +54,6 @@ class  BinarySearchTreeTest(unittest.TestCase) :
         except:
             print("BinarySearchTreeTest is not correct")
         finally:
-       
             print(f"BinarySearchTreeTest: {points} Points")
     
     def test_calculator(self) :
@@ -121,4 +120,5 @@ class  BinarySearchTreeTest(unittest.TestCase) :
         finally:
             print(f"BinarySearchTreeWithDuplication: {points} Points")
     
-    
+b = BinarySearchTreeTest()
+b.test_binarytree()

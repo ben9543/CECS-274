@@ -1,8 +1,0 @@
-6. What is the advantage and disadvantage of Linked List compared with Array-Based data structures.
-
-Advantages: 
-    1. We don't need to resize the array.
-    2. Insert / remove an element takes only O(1) while array-based list takes O(n).
-
-Disadvantage: 
-    1. Searching a specific element by index takes O(n) of time while array-based list takes only O(1)
