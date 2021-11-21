@@ -121,4 +121,4 @@ class  BinarySearchTreeTest(unittest.TestCase) :
             print(f"BinarySearchTreeWithDuplication: {points} Points")
     
 b = BinarySearchTreeTest()
-b.test_binarytree()
+b.test_calculator()

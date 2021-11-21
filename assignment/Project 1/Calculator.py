@@ -5,6 +5,8 @@ import DLList
 import BinaryTree
 import operator
 
+operators = ['+', '-', '*', '/']
+
 class Calculator:
     def __init__(self) :
         self.dict = ChainedHashTable.ChainedHashTable(DLList.DLList)
@@ -32,12 +34,45 @@ class Calculator:
         except IndexError:
             return False
 
+    # In Progress
     def build_parse_tree(self, exp : str) -> str:
-        pass
+        stack = []
+        t = BinaryTree.BinaryTree()
         
+        def isOperator(c):
+            if c not in operators: return False
+            return True
+
+        for c in exp:
+            u = BinaryTree.BinaryTree.Node(c)
+            if not isOperator(c):
+                stack.append(u)
+            else:
+                t1 = stack.pop()
+                t2 = stack.pop()
+                u.left = t1
+                u.right = t2
+                stack.append(u)
+        t.r = stack.pop()
+        return t
 
     def _evaluate(self, u):
-        pass
+        
+        if u is None:
+            return 0
+        if u.left is None and u.right is None:
+            return int(u.x)
+        left_sum = self._evaluate(u.left)
+        right_sum = self._evaluate(u.right)
+        
+        if u.x == '+':
+            return operator.add(left_sum, right_sum)
+        elif u.x == '-':
+            return operator.sub(left_sum, right_sum)
+        elif u.x =='*':
+            return operator.mul(left_sum, right_sum)
+        else:
+            return operator.floordiv(left_sum, right_sum)
 
     def evaluate(self, exp):
         try:
@@ -45,7 +80,6 @@ class Calculator:
             return self._evaluate(parseTree.r)
         except:
             return 0
-        
 
 '''
 s = Calculator()

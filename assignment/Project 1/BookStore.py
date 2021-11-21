@@ -24,7 +24,7 @@ class BookStore:
         self.bookSortedCatalog = ArrayList.ArrayList()
         self.similaGraph = AdjacencyList.AdjacencyList(0)
         
-
+    # Lab 4
     def loadCatalog(self, fileName : str) :
         '''
             loadCatalog: Read the file filenName and creates the array list with all books.
@@ -39,6 +39,7 @@ class BookStore:
                 b = Book.Book(key, title, group, rank, similar)
                 self.bookCatalog.append(b)
                 self.indexKey.add(key, self.bookCatalog.size()-1)
+                self.indexSortedPrefix.add(title, self.bookCatalog.size()-1)
             # The following line is used to calculate the total time 
             # of execution
             elapsed_time = time.time() - start_time
@@ -69,14 +70,17 @@ class BookStore:
         index = self.indexKey.find(s)
         if index != None: self.addBookByIndex(index)
 
+    # Lab 4
     def addBookByPrefix(self, s : str) :
         '''
         addBookByPrefix: Inserts into the shopping cart the book with prefix s
         input: 
-            s: Prefix    
+            s: Prefix
         '''
         # Validating the index. Otherwise it  crashes
-        pass
+        b = self.indexSortedPrefix.find(s)
+        if b is not None:
+            self.addBookByIndex(b)
 
     def pathLength(self, s1: str, s2: str) :
         i = self.indexKey.find(s1)
@@ -97,7 +101,6 @@ class BookStore:
         numberOfBooks = 0
         for book in self.bookCatalog:
             if infix in book.title:
-                print(book)
                 numberOfBooks+=1
             if numberOfBooks >= 50: break
         return numberOfBooks
