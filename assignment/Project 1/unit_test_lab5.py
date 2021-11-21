@@ -54,5 +54,7 @@ class  BinaryHeapTest(unittest.TestCase) :
             print("BookStore is not correct")
         finally:
             print(f"BookStore: {points} Points")
-    
+
+b = BinaryHeapTest()
+b.test_binaryheap()
     

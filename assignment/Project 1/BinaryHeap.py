@@ -35,25 +35,27 @@ class BinaryHeap(Queue):
         self.a[self.n] = x
         self.n += 1
         self.bubble_up(self.n - 1)
-        return True
 
     def bubble_up(self, i):
-        p = parent(i)
-        while i > 0 and self.a[i] < self.a[p]:
-            temp = self.a[i]
-            self.a[i] = self.a[p]
-            self.a[p] = temp
-            i = p
+        try:
             p = parent(i)
-
+            while i > 0 and self.a[i] < self.a[p]:
+                self.a[i], self.a[p] = self.a[p], self.a[i]
+                i = p
+                p = parent(i)
+        except IndexError:
+            pass
+    
     def remove(self):
+        if self.n <= 0: return None
         x = self.a[0]
         self.a[0] = self.a[self.n-1]
-        self.n -= 1
         self.trickle_down(0)
         if 3*len(self.a) < self.n:
             self.resize()
+        self.n -= 1
         return x
+
 
     # Check this function in office hour or tutors
     def trickle_down(self, i):
@@ -90,5 +92,4 @@ class BinaryHeap(Queue):
             if i  < self.n-1:
                 s += ","
         return s + "]"
-
 
