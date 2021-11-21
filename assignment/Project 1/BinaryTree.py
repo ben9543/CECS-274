@@ -34,8 +34,8 @@ class BinaryTree:
         return d
 
     def size(self) -> int:
-        if self.u == self.nil: return 0
-        return 1 + self._size(self.u.left) + self._size(self.u.right)
+        u = self.r
+        return self._size(u)
     
     def _size(self, u : Node) -> int:
         if u == self.nil: return 0
@@ -45,8 +45,8 @@ class BinaryTree:
         pass
 
     def height(self) -> int:
-        if self.u==self.nil:return 0
-        return 1+max(self.height(self.u.left), self.height(self.u.right))
+        u = self.r
+        return self._height(u)
 
     
     def _height(self, u : Node) -> int:
@@ -62,11 +62,15 @@ class BinaryTree:
     def bf_traverse(self):
         q = ArrayQueue.ArrayQueue()
         if self.r != self.nil : q.add(self.r)
+        
         while True:
-            self.u = q.remove()
-            if self.u.left != self.nil : q.add(self.u.left)
-            if self.u.right != self.nil : q.add(self.u.right)
-            if q.size() > 0: break
+            u = q.remove()
+
+            # Visit node
+            print(f"{u.x}: {u.v}")
+            if u.left != self.nil : q.add(u.left)
+            if u.right != self.nil : q.add(u.right)
+            if q.size() <= 0: break
             
     def first_node(self):
         w = self.r
@@ -87,19 +91,35 @@ class BinaryTree:
         return w
     
     def in_order(self) :
-        if self.u.left != self.nil: self.in_order(self.u.left)
-        print(self.u.x)
-        if self.u.right != self.nil: self.in_order(self.u.right)
+
+        u = self.r
+        def _in_order(u):
+            if u.left != None: _in_order(u.left)
+
+            # Visit node
+            print(f"{u.x}: {u.v}")
+            if u.right != None: _in_order(u.right)
+        _in_order(u)
 
     def pre_order(self) :
-        print(self.u.x)
-        if self.u.left != self.nil: self.in_order(self.u.left)
-        if self.u.right != self.nil: self.in_order(self.u.right)
+        u = self.r
+        def _pre_order(u):
 
-    def post_order(self) :
-        if self.u.left != self.nil: self.in_order(self.u.left)
-        if self.u.right != self.nil: self.in_order(self.u.right)
-        print(self.u.x)
+            # Visit node
+            print(f"{u.x}: {u.v}")
+            if u.left != None: _pre_order(u.left)
+            if u.right != None: _pre_order(u.right)
+        _pre_order(u)
+
+    def pos_order(self) :
+        u = self.r
+        def _post_order(u):
+            if u.left != None: _post_order(u.left)
+            if u.right != None: _post_order(u.right)
+
+            # Visit node
+            print(f"{u.x}: {u.v}")
+        _post_order(u)
 
     def __str__(self):
         l = []
