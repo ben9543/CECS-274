@@ -18,17 +18,22 @@ class BinarySearchTreeWithDuplication(Set):
         return l
 
     def add(self, key : object, value : object) -> bool:
+        
+        # Custom list class for string formattign
+        class stringFormattedList(list):
+            def __str__(self):
+                return ",".join(self)
+        
         l = self.find(key)
-        print(l)
         if(l is not None):
             #   Add new node to the list
             l.append(value)
         else:
             #   Create new list
-            newList = [value]
+            newList = stringFormattedList()
+            newList.append(value)
             self.binaryTree.add(key, newList)
         self.n+=1
         
     def remove(self, x : object) -> bool:
         return self.binaryTree.remove(x)
-    
