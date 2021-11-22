@@ -127,4 +127,3 @@ class BookStore:
             elapsed_time = time.time() - start_time
             print(f"removeFromShoppingCart {u} Completed in {elapsed_time} seconds")
             return u
-

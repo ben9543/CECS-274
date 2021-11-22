@@ -12,13 +12,17 @@ class BinarySearchTreeWithDuplication(Set):
         return self.n 
 
     def find(self, x: object) -> object:
-        return self.binaryTree.find_eq(x)
+        l = self.binaryTree.find_eq(x)
+        if l is not None:
+            return l.v
+        return l
 
     def add(self, key : object, value : object) -> bool:
         l = self.find(key)
+        print(l)
         if(l is not None):
             #   Add new node to the list
-            l.v.append(value)
+            l.append(value)
         else:
             #   Create new list
             newList = [value]
@@ -26,14 +30,15 @@ class BinarySearchTreeWithDuplication(Set):
         self.n+=1
         
     def remove(self, x : object) -> bool:
-        pass
-        # return self.binaryTree.remove(x)
-     
-q = BinarySearchTreeWithDuplication()
-q.add(1, "a")
-q.add(1, "b")
-q.add(2, "c")
-q.add(3, "d")
-q.add(3, "e")
-
-print(q.find(1).v, q.find(2).v, q.find(3).v)
+        return self.binaryTree.remove(x)
+    
+a = BinarySearchTreeWithDuplication()
+a.add(1, "a")
+a.add(1, "b")
+a.add(1, "c")
+a.add(2, "d")
+a.add(3, "e")
+a.add(3, "z")
+print(a.find(1).__str__(), "a,b,c")
+print(a.find(2).__str__(), "d") 
+print(a.find(3).__str__(), "e,z")
