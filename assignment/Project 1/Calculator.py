@@ -61,14 +61,11 @@ class Calculator:
             if c not in operators: return False
             return True
         for c in exp:
-            print(u.x)
             if c == "(":
-                u.set_val(c)
+                # u.set_val(c)
                 u = u.insert_left()
             elif c == ")":
-                if u.parent:
-                    u = u.parent
-                # u = u.insert_right()
+                if u.parent: u = u.parent
             elif isOperator(c):
                 u.set_val(c)
                 u = u.insert_right()
@@ -102,11 +99,6 @@ class Calculator:
         except:
             return 0
 
-s = Calculator()
-print(s.evaluate("((4*5)+(2*3))"))
-#print(s.evaluate("((a*b)+(c*d))"))
-
-# print_expression
 '''
 s = Calculator()
 s.set_variable("a", 1.3)
