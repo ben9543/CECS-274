@@ -38,26 +38,47 @@ class Calculator:
     def build_parse_tree(self, exp : str) -> str:
         stack = []
         t = BinaryTree.BinaryTree()
-        
-        def isOperator(c):
-            if c not in operators: return False
-            return True
-
+        t.r = BinaryTree.BinaryTree.Node('')
+        u = t.r
+        '''
         for c in exp:
             u = BinaryTree.BinaryTree.Node(c)
             if not isOperator(c):
                 stack.append(u)
+            elif "(" or ")":
+                continue
             else:
                 t1 = stack.pop()
                 t2 = stack.pop()
                 u.left = t1
                 u.right = t2
                 stack.append(u)
+
         t.r = stack.pop()
         return t
+        '''
+        def isOperator(c):
+            if c not in operators: return False
+            return True
+        for c in exp:
+            print(u.x)
+            if c == "(":
+                u.set_val(c)
+                u = u.insert_left()
+            elif c == ")":
+                if u.parent:
+                    u = u.parent
+                # u = u.insert_right()
+            elif isOperator(c):
+                u.set_val(c)
+                u = u.insert_right()
+            else:
+                u.set_val(c)
+                u = u.parent
+        return t
+        
 
     def _evaluate(self, u):
-        
         if u is None:
             return 0
         if u.left is None and u.right is None:
@@ -81,15 +102,9 @@ class Calculator:
         except:
             return 0
 
-'''
 s = Calculator()
-print(s.evaluate("((a*b)+(c*d))"))
-s.set_variable("a", 1.3)
-s.set_variable("b", 2.1)
-s.set_variable("c", 2.2)
-s.set_variable("d", 3.0)
-print(s.evaluate("((a*b)+(c*d))"))
-'''
+print(s.evaluate("((4*5)+(2*3))"))
+#print(s.evaluate("((a*b)+(c*d))"))
 
 # print_expression
 '''
