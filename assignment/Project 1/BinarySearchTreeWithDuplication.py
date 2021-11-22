@@ -32,13 +32,3 @@ class BinarySearchTreeWithDuplication(Set):
     def remove(self, x : object) -> bool:
         return self.binaryTree.remove(x)
     
-a = BinarySearchTreeWithDuplication()
-a.add(1, "a")
-a.add(1, "b")
-a.add(1, "c")
-a.add(2, "d")
-a.add(3, "e")
-a.add(3, "z")
-print(a.find(1).__str__(), "a,b,c")
-print(a.find(2).__str__(), "d") 
-print(a.find(3).__str__(), "e,z")
