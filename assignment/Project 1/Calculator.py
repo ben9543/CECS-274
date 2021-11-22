@@ -80,6 +80,7 @@ class Calculator:
             return 0
         if u.left is None and u.right is None:
             return int(u.x)
+        
         left_sum = self._evaluate(u.left)
         right_sum = self._evaluate(u.right)
         
@@ -100,7 +101,7 @@ class Calculator:
             return 0
 
 '''
-s = Calculator()
+
 s.set_variable("a", 1.3)
 s.set_variable("b", 2.1)
 s.set_variable("c", 2.2)
