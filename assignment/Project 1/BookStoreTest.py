@@ -1,7 +1,7 @@
 from BookStore import BookStore
 
 b = BookStore()
-b.loadCatalog("books.txt")
+b.loadCatalog("booktest.txt")
 
 ''' Lab2 - LinkedList
 
@@ -32,4 +32,7 @@ Searching for books by:
 House at Pooh Corner (Pooh Original Edition)"
 '''
 
-b.searchBookByInfix
+''' Lab5 - Heap
+
+'''
+b.addBookByPrefix("World of Po")

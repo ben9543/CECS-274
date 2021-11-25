@@ -23,6 +23,7 @@ class BookStore:
         self.indexSortedPrefix = BinarySearchTree.BinarySearchTree()
         self.bookSortedCatalog = ArrayList.ArrayList()
         self.similaGraph = AdjacencyList.AdjacencyList(0)
+        self.bestSellers = BinaryHeap.BinaryHeap()
         
     # Lab 4
     def loadCatalog(self, fileName : str) :
@@ -70,7 +71,7 @@ class BookStore:
         index = self.indexKey.find(s)
         if index != None: self.addBookByIndex(index)
 
-    # Lab 4
+    # Lab 5
     def addBookByPrefix(self, s : str) :
         '''
         addBookByPrefix: Inserts into the shopping cart the book with prefix s
