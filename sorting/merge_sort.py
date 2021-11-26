@@ -1,11 +1,12 @@
-
+# Worst case time complexity - O(nlog(n))
+# Space complexity - O(n) (not in-place)
 def merge_sort(a):
     # Take the length of array and divide it by two
     if (len(a) < 2):
         return a
     m = len(a)//2
     a0 = merge_sort(a[:m])
-    a1 = merge_sort(a[m:len(a)]) 
+    a1 = merge_sort(a[m:len(a)])
     merge(a0, a1, a)
     return a
 

@@ -1,0 +1,4 @@
+Merge sort gives you guaranteed time complexity of O(nlog(n))
+Quick sort gives you faster average time complexity (2n*ln(n) + O(n)) than merge sort.
+But quick sort does not guarantee the time complexity of O(nlog(n)). In the worst case,
+it gives you O(n^2)
