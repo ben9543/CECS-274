@@ -44,7 +44,7 @@ class  BinaryHeapTest(unittest.TestCase) :
         points = 0.5
         try:
             a = BookStore.BookStore()
-            a.loadCatalog("../books.txt")
+            a.loadCatalog("./books.txt")
             points += 0.5
             a.searchBookByInfix("World of Po")
 
@@ -57,4 +57,5 @@ class  BinaryHeapTest(unittest.TestCase) :
 
 b = BinaryHeapTest()
 b.test_binaryheap()
+b.test_BookStore()
     

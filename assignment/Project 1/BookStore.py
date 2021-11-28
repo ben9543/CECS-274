@@ -17,7 +17,7 @@ class BookStore:
     removing and adding in a shopping cart. 
     '''
     def __init__(self) :
-        self.bookCatalog = ArrayList.ArrayList()
+        self.bookCatalog = DLList.DLList()
         self.shoppingCart = ArrayQueue.ArrayQueue()
         self.indexKey = ChainedHashTable.ChainedHashTable()
         self.indexSortedPrefix = BinarySearchTree.BinarySearchTree()
@@ -90,7 +90,7 @@ class BookStore:
         print(f"{s1} and {s2} are at distance {distance}")
         return distance
 
-
+    # Lab 5
     def searchBookByInfix(self, infix : str) -> int:
         '''
         searchBookByInfix: Search all the books that contains infix
@@ -100,10 +100,21 @@ class BookStore:
             the number of books that contains infix in its title   
         '''
         numberOfBooks = 0
+        length = self.bestSellers.n
         for book in self.bookCatalog:
             if infix in book.title:
+
+                # Lab 5 bestSellers
+                self.bestSellers.add(book)
+
                 numberOfBooks+=1
             if numberOfBooks >= 50: break
+
+        # Lab 5 bestSellers
+        while length != 0:
+            print(self.bestSellers.remove())
+            length -= 1
+        
         return numberOfBooks
 
     def sortUsingMergeSort(self) :

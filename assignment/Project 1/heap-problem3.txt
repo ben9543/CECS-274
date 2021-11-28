@@ -2,6 +2,6 @@
 
 Heap is good at inserting data, but BST is good at searching data.
 
-Theoretically, Heap takes O(log(n)) of time complexity in insert, but in reality, it shows almost O(1) of time complexity.
+Theoretically, Heap takes O(log(n)) of time complexity in insert, but in reality, it shows almost O(1) of time complexity in average.
 But BST constantly shows O(log(n)) of time complexity.
 But when it comes to search, it takes O(n) which is the worst case of BST, and additionally, BST guarantees O(log(n)) of time complexity.
