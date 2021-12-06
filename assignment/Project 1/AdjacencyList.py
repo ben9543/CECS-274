@@ -6,7 +6,6 @@ import ArrayList
 import ArrayStack
 import ArrayQueue
 
-
 class AdjacencyList(Graph):
     def __init__(self, n : int):
         self.n = n
@@ -59,7 +58,4 @@ g.add_edge(1, 4)
 g.add_edge(4, 5)
 
 print(g.dfs(0,1))
-
 '''
-
-

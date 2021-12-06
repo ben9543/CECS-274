@@ -1,4 +1,4 @@
-# Worst case time complexity - O(nlog(n))
+# Worst case time complexity - O(nlog(n))   
 # Space complexity - O(n) (not in-place)
 def merge_sort(a):
     # Take the length of array and divide it by two
