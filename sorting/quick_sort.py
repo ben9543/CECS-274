@@ -20,6 +20,7 @@ def quick_sort(a, start, end):
 # all the elements less than pivot will be on the left
 # and all the elements bigger than pivot will be on the right of the pIndex(including pIndex itself)
 # Last step: swap pivot and partitioning index element at the last
+
 def partition(a, start, end):
     pivot = a[end]
     pIndex = start
