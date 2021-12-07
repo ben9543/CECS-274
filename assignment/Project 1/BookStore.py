@@ -37,7 +37,7 @@ class BookStore:
             start_time = time.time()
             for line in f:
                 (key, title, group, rank, similar) = line.split("^")
-                b = Book.Book(key, title, group, rank, similar)
+                b = SortableBook.SortableBook(key, title, group, rank, similar)
                 self.bookCatalog.append(b)
                 self.indexKey.add(key, self.bookCatalog.size()-1)
                 self.indexSortedPrefix.add(title, self.bookCatalog.size()-1)
