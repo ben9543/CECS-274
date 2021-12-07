@@ -1,0 +1,8 @@
+Q4. What is the advantage and disadvantage of Sorting and BinarySearch over BinarySearchTree
+and heaps data structures.
+
+Online algorithm is one that can process its input piece-by-piece in a serial fashion. In contrast, 
+an offline algorithm is given the whole problem data from the beginning and is required to output 
+an answer which solves the problem at hand.
+
+Since most of the time online algorithms cannot match the performance of offline algorithms,
