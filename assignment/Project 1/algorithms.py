@@ -33,8 +33,8 @@ def merge_sort(a):
     mid = len(a) // 2
 
     # Partitioning
-    a0 = merge_sort(a[:mid])
-    a1 = merge_sort(a[mid:])
+    a0 = merge_sort(a[0:mid])
+    a1 = merge_sort(a[mid:len(a)])
 
     # Merge
     merge(a0, a1, a)
@@ -75,8 +75,9 @@ def binary_search(a, n, x) :
     low = 0
     high = n
     mid = 0
+    
     while True:
-        if high < low: return -1
+        if high < low: return mid
         mid = (high + low) // 2
         if x == a[mid]:
             return mid

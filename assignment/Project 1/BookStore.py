@@ -37,8 +37,10 @@ class BookStore:
             start_time = time.time()
             for line in f:
                 (key, title, group, rank, similar) = line.split("^")
-                b = SortableBook.SortableBook(key, title, group, rank, similar)
+                b = Book.Book(key, title, group, rank, similar)
+                sb = SortableBook.SortableBook(key, title, group, rank, similar)
                 self.bookCatalog.append(b)
+                self.bookSortedCatalog.append(sb)
                 self.indexKey.add(key, self.bookCatalog.size()-1)
                 self.indexSortedPrefix.add(title, self.bookCatalog.size()-1)
             # The following line is used to calculate the total time 
@@ -126,8 +128,10 @@ class BookStore:
 
     def searchBookUsingBinarySearch(self, prefix : str) :
         s = SortableBook.SortableBook(0, prefix, "", 0, None)
-        j = algorithms.binary_search(self.bookSortedCatalog, self.bookSortedCatalog.size(), s)
-        print(self.bookSortedCatalog[j])
+        j = algorithms.binary_search(self.bookSortedCatalog, self.bookSortedCatalog.size()-1, s)
+        if j != -1:
+            print(self.bookSortedCatalog[j])
+        else: print("No result")
 
     def removeFromShoppingCart(self) :
         '''
