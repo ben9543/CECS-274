@@ -79,20 +79,31 @@ class ArrayList(List):
         self.a[(self.j + i) % len(self.a)] = x
         self.n += 1
     
-    def remove(self, i : int) -> object:
-        if i < 0 or i >= self.n: raise IndexError(f"Index {i} is out of bound")
-        if self.n == 0: raise Exception("Stack is empty")
-        x = self.a[i]
-        if i < self.n / 2:
-            for k in range(i, 0, -1):
-                self.a[(self.j + k) % len(self.a)] = self.a[(self.j + k -1 ) % len(self.a)]
+    def remove(self, i: int) -> object:  # Modify
+        try:
+            if i < 0 or i >= self.n:
+                raise Exception()
+
+            x = self.a[(self.j + i) % len(self.a)]
+
+            if i < self.n/2:
+                for k in range(i, 0, -1):
+                    self.a[(self.j + k) % len(self.a)] = self.a[(self.j + k - 1) % len(self.a)]
+
                 self.j = (self.j + 1) % len(self.a)
-        else:
-            for k in range(i, self.n - 1):
-                self.a[(self.j + k + 1) % len(self.a)] = self.a[(self.j + k) % len(self.a)]
-        self.n -= 1
-        self.resize()
-        return x
+            else:
+                for k in range(i, self.n - 1):
+                    self.a[(self.j + k) % len(self.a)] = self.a[(self.j + k + 1) % len(self.a)]
+
+            self.n -= 1
+
+            if len(self.a) >= 3 * self.n:
+                self.resize()
+
+            return x
+        except Exception:
+            raise IndexError()
+
 
     def size(self) -> int:
         return self.n

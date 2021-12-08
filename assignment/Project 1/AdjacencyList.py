@@ -14,19 +14,29 @@ class AdjacencyList(Graph):
             self.adj[i] = ArrayList.ArrayList()
             
     def add_edge(self, i : int, j : int):
-        pass
+        self.adj[i].append(j)
         
     def remove_edge(self, i : int, j : int):
-        pass
+        if len(self.adj[i]) == 0: return
+        for k in range(len(self.adj[i])):
+            # print(self.adj[i].get(k))
+            if self.adj[i].get(k) == j:
+                self.adj[i].remove(k)
+                return
                 
     def has_edge(self, i : int, j: int) ->bool:
-        pass
+        for k in self.adj[i]:
+            if k == j: return True
+        return False
         
     def out_edges(self, i) -> List:
-        pass
+        return self.adj[i]
 
     def in_edges(self, j) -> List:
-        pass
+        out = ArrayStack.ArrayStack()
+        for i in range(self.n):
+            if self.has_edge(i, j): out.push(j)
+        return out
 
     def bfs(self, r :int):
         pass
