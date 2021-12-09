@@ -5,4 +5,4 @@ Online algorithm is one that can process its input piece-by-piece in a serial fa
 an offline algorithm is given the whole problem data from the beginning and is required to output 
 an answer which solves the problem at hand.
 
-Since most of the time online algorithms cannot match the performance of offline algorithms,
+Most of the Sorting algorithm and BinarySearch are offline algorithms.
