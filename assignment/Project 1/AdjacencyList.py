@@ -44,10 +44,11 @@ class AdjacencyList(Graph):
     def dfs(self, r :int):
         pass
 
-    
+    # Not mentioned 
     def distance(self, r : int, dest: int):
         pass
-
+    
+    # Not mentioned 
     def size(self) -> int :
         return self.n
                       
