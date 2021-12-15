@@ -35,14 +35,48 @@ class AdjacencyList(Graph):
     def in_edges(self, j) -> List:
         out = ArrayStack.ArrayStack()
         for i in range(self.n):
-            if self.has_edge(i, j): out.push(j)
+            if self.has_edge(i, j): out.push(i)
         return out
 
     def bfs(self, r :int):
-        pass
+        seen = set()
+        queue = list()
+        queue.append(r)
+        seen.add(r)
+        while len(queue) > 0:
+            i = queue.pop(0)
+            print(i)
+            for j in self.out_edges(i):
+                if not j in seen:
+                    queue.append(j)
+                    seen.add(j)
 
     def dfs(self, r :int):
-        pass
+        seen = set()
+        stack = list()
+        stack.append(r)
+        while len(stack) > 0:
+            i = stack.pop()
+            print(i)
+            if not i in seen: 
+                seen.add(i)
+                for j in self.out_edges(i):
+                    if not j in seen:
+                        stack.append(j)
+    def r_dfs(self, r :int):
+        def inner(self, i, v):
+            v.add(i)
+            for j in self.out_edges(i):
+                if not j in v:
+                    v.add(i)
+                    inner(self, j, v)
+            # Visit Node here
+            print(i)
+                
+
+        visited = set()
+        inner(self, r, visited)
+
 
     # Not mentioned 
     def distance(self, r : int, dest: int):

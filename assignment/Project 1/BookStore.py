@@ -35,6 +35,7 @@ class BookStore:
         with open(fileName,encoding='utf8') as f:
             # The following line is the time that the computation starts
             start_time = time.time()
+            count = 0
             for line in f:
                 (key, title, group, rank, similar) = line.split("^")
                 b = Book.Book(key, title, group, rank, similar)
@@ -43,8 +44,16 @@ class BookStore:
                 self.bookSortedCatalog.append(sb)
                 self.indexKey.add(key, self.bookCatalog.size()-1)
                 self.indexSortedPrefix.add(title, self.bookCatalog.size()-1)
+
             # The following line is used to calculate the total time 
             # of execution
+            self.similaGraph = AdjacencyList.AdjacencyList(self.bookCatalog.size())
+            for i in range(self.bookCatalog.size()):
+                l = self.bookCatalog[i].similar.split()
+                for k in range(1, len(l)):
+                    j = self.indexKey.find(l[k])
+                    if j is not None:
+                        self.similaGraph.add_edge(j, i)
             elapsed_time = time.time() - start_time
             print(f"Loading {self.bookCatalog.size()} books in {elapsed_time} seconds")
 
@@ -101,23 +110,15 @@ class BookStore:
         returns: 
             the number of books that contains infix in its title   
         '''
-        numberOfBooks = 0
-        length = self.bestSellers.n
+        exists = False
         for book in self.bookCatalog:
             if infix in book.title:
-
-                # Lab 5 bestSellers
-                self.bestSellers.add(book)
-
-                numberOfBooks+=1
-            if numberOfBooks >= 50: break
-
-        # Lab 5 bestSellers
-        while length != 0:
-            print(self.bestSellers.remove())
-            length -= 1
-        
-        return numberOfBooks
+                print(book)
+                r = self.similaGraph.out_edges(self.indexKey.find(book.key))
+                for each_index in r:
+                    print("Similar: ", self.bookCatalog[each_index])
+                exists = True
+        return exists
 
     def sortUsingMergeSort(self) :
         algorithms.merge_sort(self.bookSortedCatalog)

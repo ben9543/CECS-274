@@ -30,7 +30,9 @@ class ChainedHashTable(Set):
         return self.n
         
     def find(self, key : object) -> object :
+        # print("Get, Hashed Key: ", self.t[self.hash(key)], self.hash(key))
         for y in self.t[self.hash(key)]:
+            # print("y.key, key: ", y.key, key)
             if y.key == key: return y.value
         return None
         
