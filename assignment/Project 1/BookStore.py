@@ -17,7 +17,7 @@ class BookStore:
     removing and adding in a shopping cart. 
     '''
     def __init__(self) :
-        self.bookCatalog = DLList.DLList()
+        self.bookCatalog = ArrayList.ArrayList()
         self.shoppingCart = ArrayQueue.ArrayQueue()
         self.indexKey = ChainedHashTable.ChainedHashTable()
         self.indexSortedPrefix = BinarySearchTree.BinarySearchTree()
@@ -53,7 +53,7 @@ class BookStore:
                 for k in range(1, len(l)):
                     j = self.indexKey.find(l[k])
                     if j is not None:
-                        self.similaGraph.add_edge(j, i)
+                        self.similaGraph.add_edge(i, j)
             elapsed_time = time.time() - start_time
             print(f"Loading {self.bookCatalog.size()} books in {elapsed_time} seconds")
 
@@ -116,7 +116,7 @@ class BookStore:
                 print(book)
                 r = self.similaGraph.out_edges(self.indexKey.find(book.key))
                 for each_index in r:
-                    print("Similar: ", self.bookCatalog[each_index])
+                    print("Similar: ", self.bookCatalog[each_index].title)
                 exists = True
         return exists
 
