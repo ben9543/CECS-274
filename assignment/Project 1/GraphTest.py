@@ -25,16 +25,18 @@ al.add_edge(1, 2)
 al.add_edge(2, 3)
 al.add_edge(3, 0)
 al.add_edge(0, 2)
-
+'''
 print(al.has_edge(0, 1)) # True
 print(al.has_edge(1, 3)) # False
 
 print(al.in_edges(2)) # It should return 0, 1 in any order.
 print(al.out_edges(0)) # It should return 1, 2 in any order.
-
+'''
 # al.bfs(0) # The output mustbe 0,1,2,3 or 0,2,1,3
 # al.dfs(0) # The output mustbe 0,2,3,1 or 0,1,2,3.
 # al.r_dfs(1)
+
+print(al.distance(0, 1))
 
 '''
 

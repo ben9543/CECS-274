@@ -97,6 +97,7 @@ class BookStore:
     def pathLength(self, s1: str, s2: str) :
         i = self.indexKey.find(s1)
         j = self.indexKey.find(s2)
+        print("i, j: ", i, j)
         distance = self.similaGraph.distance(i, j)
         print(f"{s1} and {s2} are at distance {distance}")
         return distance

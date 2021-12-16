@@ -63,25 +63,20 @@ class AdjacencyList(Graph):
                 for j in self.out_edges(i):
                     if not j in seen:
                         stack.append(j)
-    def r_dfs(self, r :int):
-        def inner(self, i, v):
-            v.add(i)
-            for j in self.out_edges(i):
-                if not j in v:
-                    v.add(i)
-                    inner(self, j, v)
-            # Visit Node here
-            print(i)
-                
-
-        visited = set()
-        inner(self, r, visited)
-
 
     # Not mentioned 
     def distance(self, r : int, dest: int):
-        pass
-    
+        visited = set()
+        def _recursive(count, curr, end, visited):
+            if curr == end: return count
+            if not curr in visited:
+                visited.add(curr)
+                for i in self.out_edges(curr):
+                    if not i in visited:
+                        return _recursive(count+1, i, end, visited)
+            
+        return _recursive(0, r, dest, visited)
+
     # Not mentioned 
     def size(self) -> int :
         return self.n

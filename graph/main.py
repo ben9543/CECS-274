@@ -38,7 +38,7 @@ def shortestPath(adj_list, start, end):
             for i in adj_list[node]:
                 if i not in visited:
                     queue.append([i,dist+1])
-        return False
+    return False
 
 def largest_components(adj_list):
     largest = []
